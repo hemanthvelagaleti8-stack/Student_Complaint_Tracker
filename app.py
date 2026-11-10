@@ -16,8 +16,10 @@ from urllib.parse import parse_qs, urlparse
 
 APP_DIR = Path(__file__).resolve().parent
 DATA_FILE = APP_DIR / "data.json"
-HOST = "127.0.0.1"
-PORT = 8000
+
+HOST = "0.0.0.0"
+PORT = int(__import__("os").environ.get("PORT", "8000"))
+
 CATEGORIES = ["Electrical", "Water", "Network", "Other"]
 STATUSES = ["Pending", "In progress", "Resolved"]
 
